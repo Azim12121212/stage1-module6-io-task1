@@ -4,15 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 
 
 public class FileReader {
 
     public Profile getDataFromFile(File file) {
         String data = "";
-        String[] arr = new String[0];
-        String name, email;
+        String[] arr;
+        String name;
+        String email;
         Integer age;
         Long phone;
 
@@ -39,14 +39,14 @@ public class FileReader {
 
             return new Profile(name, age, email, phone);
         } catch (FileNotFoundException fne) {
-            System.err.print(fne);
+            System.out.print(fne);
         } catch (IOException ioe){
-            System.err.print(ioe);
+            System.out.print(ioe);
         }
 
         return new Profile();
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String dir = System.getProperty("user.home") + "\\IdeaProjects\\stage1-module6-io-task1\\src\\main\\resources";
         String fileName = "Profile.txt";
         String path = dir + File.separator + fileName;
